@@ -5,6 +5,6 @@ pipeline{
       steps{
         echo "Building."
       }
-    }`
+    }
   }
 }
