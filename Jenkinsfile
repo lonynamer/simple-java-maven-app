@@ -21,6 +21,11 @@ pipeline{
         }
       }
     }
+    stage('Sanity check'){
+      steps{
+        input "Can I deploy ?"
+      }
+    }
     stage('Deliver'){
       steps{
         sh 'jenkins/scripts/deliver.sh'
