@@ -8,7 +8,7 @@ pipeline{
   stages{
     stage('Test'){
       steps{
-        mvn test
+        sh 'mvn test'
       }
     }
   }
