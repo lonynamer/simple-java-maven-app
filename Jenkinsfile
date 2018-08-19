@@ -5,9 +5,9 @@ pipeline{
     } 
   }
   stages{
-    stage('Build'){
+    stage('Test'){
       steps{
-        mvn -B clean package
+        mvn test
       }
     }
   }
