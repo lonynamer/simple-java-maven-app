@@ -15,11 +15,6 @@ pipeline{
       steps{
         sh 'mvn -B clean package'
       }
-      //post{
-        //always{
-        //  junit './target/surefire-reports/*.xml' 
-       // }
-      //}
     }
     stage('Test'){
       steps{
@@ -37,9 +32,4 @@ pipeline{
       }
     }
   }
-//  post{
-//    always{
-//      deleteDir()
-//    }
-//  }
 }
