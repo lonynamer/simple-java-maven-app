@@ -1,40 +1,21 @@
 pipeline{
-  agent { 
-    docker {
-    image 'maven:3-alpine'
-    args '-v /opt/tomcat/.m2:/opt/tomcat/.m2'
-    } 
-  }
+  agent any
   stages{
     stage('Build'){
       steps{
-        sh 'mvn -DskipTests -B clean package'
+        echo "Building"
       }
     }
     stage('Test'){
       steps{
-        sh 'mvn test'
-      }
-      post{
-        always{
-	  junit 'target/surefire-reports/*.xml'
-	}
+        echo "Test"
       }
     }
-    stage('Sanity check'){
+
+    stage('Deploy'){
       steps{
-        input "Can I deploy ?"
+        echo "Deploy"
       }
-    }
-    stage('Deliver'){
-      steps{
-        sh 'jenkins/scripts/deliver.sh'
-      }
-    }
-  }
-  post{
-    always{
-      deleteDir()
     }
   }
 }
